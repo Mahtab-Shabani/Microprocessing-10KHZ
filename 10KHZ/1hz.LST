@@ -1,0 +1,57 @@
+MACRO ASSEMBLER 1HZ                                        01/01/102 00:29:51 PAGE     1
+
+
+WIN16 MACRO ASSEMBLER A51 V6.03.08
+OBJECT MODULE PLACED IN C:\MICRO\10KHZ\1HZ.OBJ
+ASSEMBLER INVOKED BY: A51.EXE C:\MICRO\10KHZ\1HZ.A51 OJ(C:\MICRO\10KHZ\1HZ.OBJ) PIN(C:\FSI\INC) EP LINES XR DB PL(60) PW(80) RB(0) 
+
+LOC     OBJ           LINE    SOURCE
+  0000                   1    	ORG 0000H
+0000    758901           2    	MOV TMOD,#01H
+0003    780A             3    START:    MOV R0,#10
+0005    B290             4    	CPL P1.0
+0007    758C3C           5    LOOP:     MOV TH0,#03CH
+000A    758AB0           6    	MOV TL0,#0B0H
+000D    D28C             7    	SETB TR0
+000F    308DFD           8    WAIT:     JNB TF0,WAIT
+0012    C28C             9    	CLR TR0
+0014    C28D            10    	CLR TF0	
+0016    D802            11    	DJNZ R0,ST2
+0018    80E9            12    	JMP START
+001A    80EB            13    ST2:  	SJMP LOOP
+                        14    
+                        15    	END	 
+MACRO ASSEMBLER 1HZ                                        01/01/102 00:29:51 PAGE     2
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+P1 . . . . . . . .  D ADDR   0090H   A                          4 
+TF0. . . . . . . .  B ADDR   0088H.5 A                          8 10 
+TH0. . . . . . . .  D ADDR   008CH   A                          5 
+START. . . . . . .  C ADDR   0003H   A                          3# 12 
+TL0. . . . . . . .  D ADDR   008AH   A                          6 
+TMOD . . . . . . .  D ADDR   0089H   A                          2 
+WAIT . . . . . . .  C ADDR   000FH   A                          8# 
+TR0. . . . . . . .  B ADDR   0088H.4 A                          7 9 
+ST2. . . . . . . .  C ADDR   001AH   A                          11 13# 
+LOOP . . . . . . .  C ADDR   0007H   A                          5# 13 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     28    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)

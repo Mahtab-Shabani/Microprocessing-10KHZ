@@ -1,0 +1,47 @@
+MACRO ASSEMBLER 10K                                        01/01/102 00:37:25 PAGE     1
+
+
+WIN16 MACRO ASSEMBLER A51 V6.03.08
+OBJECT MODULE PLACED IN C:\MICRO\10KHZ\10K.OBJ
+ASSEMBLER INVOKED BY: A51.EXE C:\MICRO\10KHZ\10K.A51 OJ(C:\MICRO\10KHZ\10K.OBJ) PIN(C:\FSI\INC) EP LINES XR DB PL(60) PW(80) RB(0) 
+
+LOC     OBJ           LINE    SOURCE
+  0000                   1    	ORG 0000H
+0000    758902           2    	MOV TMOD,#02H
+0003    758CCE           3    	MOV TH0,#-50
+0006    D28C             4    	SETB TR0
+0008    308DFD           5    LOOP:     JNB TF0,LOOP
+000B    C28D             6    	CLR TF0
+000D    B290             7    	CPL P1.0
+000F    80F7             8    	SJMP LOOP
+                         9    	END
+MACRO ASSEMBLER 10K                                        01/01/102 00:37:25 PAGE     2
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+P1 . . . . . . . .  D ADDR   0090H   A                          7 
+TF0. . . . . . . .  B ADDR   0088H.5 A                          5 6 
+TH0. . . . . . . .  D ADDR   008CH   A                          3 
+TMOD . . . . . . .  D ADDR   0089H   A                          2 
+TR0. . . . . . . .  B ADDR   0088H.4 A                          4 
+LOOP . . . . . . .  C ADDR   0008H   A                          5# 8 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     17    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)

@@ -1,0 +1,54 @@
+MACRO ASSEMBLER 10                                         02/01/109 12:09:16 PAGE     1
+
+
+WIN16 MACRO ASSEMBLER A51 V6.03.08
+OBJECT MODULE PLACED IN C:\MICRO\10KHZ\10.OBJ
+ASSEMBLER INVOKED BY: A51.EXE C:\MICRO\10KHZ\10.A51 OJ(C:\MICRO\10KHZ\10.OBJ) PIN(C:\FSI\INC) EP LINES XR DB PL(60) PW(80) RB(0) 
+
+LOC     OBJ           LINE    SOURCE
+  0080                   1    ORG 80H
+0080    758901           2    MOV TMOD,#01H
+0083    758C00   F       3    LOOP:  MOV TH0,#FFH
+
+*** ERROR #46 IN LINE 3 OF 10.a51 : UNDEFINED SYMBOL (PASS-2) 'FFH'
+0086    758A00           4    MOV TL0,#00H
+0089    D28C             5    SETB TR0
+008B    308D8B   F       6    WAIT:  JNB TF0,WAIT
+008E    C28C             7    CLR TR0
+0090    C28D             8    CLR TF0
+0092    B290             9    CPL P1.0
+0094    8083     F      10    SJMP LOOP
+                        11    END
+MACRO ASSEMBLER 10                                         02/01/109 12:09:16 PAGE     2
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+P1 . . . . . . . .  D ADDR   0090H   A                          9 
+TF0. . . . . . . .  B ADDR   0088H.5 A                          6 8 
+TH0. . . . . . . .  D ADDR   008CH   A                          3 
+TL0. . . . . . . .  D ADDR   008AH   A                          4 
+FFH. . . . . . . .  ? ADDR   0000H   A                          3 
+TMOD . . . . . . .  D ADDR   0089H   A                          2 
+WAIT . . . . . . .  C ADDR   008BH   A                          6# 
+TR0. . . . . . . .  B ADDR   0088H.4 A                          5 7 
+LOOP . . . . . . .  C ADDR   0083H   A                          3# 10 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   1 ERROR(S)

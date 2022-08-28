@@ -1,0 +1,57 @@
+MACRO ASSEMBLER COUNTER                                    01/01/102 00:49:02 PAGE     1
+
+
+WIN16 MACRO ASSEMBLER A51 V6.03.08
+OBJECT MODULE PLACED IN C:\MICRO\10KHZ\COUNTER.OBJ
+ASSEMBLER INVOKED BY: A51.EXE C:\MICRO\10KHZ\COUNTER.A51 OJ(C:\MICRO\10KHZ\COUNTER.OBJ) PIN(C:\FSI\INC) EP LINES XR DB PL(60) PW(80) RB(0) 
+
+LOC     OBJ           LINE    SOURCE
+  0000                   1    	ORG 0000H
+0000    758905           2    	MOV TMOD,#00000101B
+0003    758C00           3    	MOV TH0,#00H
+0006    758A00           4    	MOV TL0,#00H
+0009    D28C             5    	SETB TR0 
+000B    E58C             6    AGAIN:  	MOV A,TH0 ;*
+000D    AE8A             7    	MOV R6,TL0;*
+000F    B58CF9           8    	CJNE A,TH0,AGAIN;*
+0012    FF               9    	MOV R7,A;*
+0013    8E90            10    	MOV P1,R6
+0015    8FA0            11    	MOV P2,R7
+0017    80F2            12    	JMP AGAIN
+                        13    	
+                        14     
+                        15    
+                        16    
+
+*** WARNING #87 IN LINE 16 OF counter.a51 : MISSING 'END' STATEMENT
+MACRO ASSEMBLER COUNTER                                    01/01/102 00:49:02 PAGE     2
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+AGAIN. . . . . . .  C ADDR   000BH   A                          6# 8 12 
+P1 . . . . . . . .  D ADDR   0090H   A                          10 
+P2 . . . . . . . .  D ADDR   00A0H   A                          11 
+TH0. . . . . . . .  D ADDR   008CH   A                          3 6 8 
+TL0. . . . . . . .  D ADDR   008AH   A                          4 7 
+TMOD . . . . . . .  D ADDR   0089H   A                          2 
+TR0. . . . . . . .  B ADDR   0088H.4 A                          5 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   1 WARNING(S)   0 ERROR(S)
